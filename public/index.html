@@ -1,21 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-
-        <!-- Framework -->
-        <!-- <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Hans McMurdy" />
+        <title>Bootstrap 5 Navbar Bottom Template · Bootstrap</title>
+        <meta name="title" content="#JavaScriptFirst" />
+        <meta
+            name="description"
+            content="Learn how to code with #JavaScriptFirst: https://github.com/HansUXdev/JavaScript-First"
+        />
+        <!-- Bootstrap core CSS -->
+        <link
             rel="stylesheet"
-            integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+            integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="./assets/css/style.css" /> -->
-        <!-- styles -->
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            defer
+            src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"
+        ></script>
+        <script
+            defer
+            src="https://use.fontawesome.com/releases/v5.15.2/js/v4-shims.js"
+        ></script>
     </head>
-    <body></body>
-    <!-- <script src="./assets/js/test.js"></script> -->
+    <body style="overflow-x: hidden">
+        <div class="min-vh-100">
+            <div
+                class="img position-absolute w-100 min-vh-100"
+                style="
+                    background-size: cover;
+                    background-image: url('http://127.0.0.1:5500/public/assets/lamp-4333322_1920.jpg');
+                "
+            >
+                <div
+                    class="w-100 h-100 position-absolute"
+                    style="background-color: rgba(0, 0, 0, 0.3)"
+                >
+                    <div class="container mt-5">
+                        <nav
+                            class="navbar fixed-top navbar-expand-sm navbar-dark"
+                            style="
+                                background-color: rgba(0, 0, 0, 0.4);
+                                backdrop-filter: blur(10px);
+                            "
+                        >
+                            <div class="container-fluid">
+                                <div
+                                    class="w-100 d-flex justify-content-between align-items-center container"
+                                >
+                                    <a class="navbar-brand" href="#">
+                                        <i
+                                            class="fa fa-heart-o"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </a>
+                                    <div class="menu">
+                                        <button
+                                            class="navbar-toggler"
+                                            type="button"
+                                            data-toggle="collapse"
+                                            data-target="#navbarCollapse"
+                                            aria-controls="navbarCollapse"
+                                            aria-expanded="false"
+                                            aria-label="Toggle navigation"
+                                        >
+                                            <span
+                                                class="navbar-toggler-icon"
+                                            ></span>
+                                        </button>
+                                        <div
+                                            class="mt-2 collapse navbar-collapse justify-content-center"
+                                            id="navbarCollapse"
+                                        >
+                                            <ul class="navbar-nav">
+                                                <li class="nav-item active">
+                                                    <a
+                                                        class="nav-link"
+                                                        aria-current="page"
+                                                        href="#"
+                                                        >dolor</a
+                                                    >
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#"
+                                                        >sit</a
+                                                    >
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                        <div
+                            class="text-white-50 pt-5 position-absolute min-vh-100 w-100 d-flex align-items-center row"
+                            style="top: 0; left: 0"
+                        >
+                            <div class="d-flex flex-wrap col-lg-6 mx-auto">
+                                <div class="container">
+                                    <div class="d-flex flex-column">
+                                        <div class="description">
+                                            <h2 class="text-white">
+                                                Lorem Ipsum
+                                            </h2>
+                                            <p>
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing elit.
+                                                Libero placeat atque asperiores
+                                                officia rem totam hic deleniti
+                                                eum illum dolore quod numquam
+                                                obcaecati, quia impedit sunt
+                                                ipsa quos qui dolores.
+                                            </p>
+                                        </div>
+                                        <div class="button mt-5">
+                                            <a
+                                                style="
+                                                    background-color: rgba(
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0.4
+                                                    );
+                                                "
+                                                class="btn btn-outline-light btn-sm rounded"
+                                                href="#"
+                                                role="button"
+                                            >
+                                                adipisicing ...
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-dark text-white">
+            <div class="container px-2 py-3">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 d-flex">
+                        <span class="m-auto">
+                            <h2 class="font-weight-light text-success">
+                                dicta
+                            </h2>
+                        </span>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <form method="post">
+                            <div class="d-flex">
+                                <div class="box">
+                                    <input
+                                        type="text"
+                                        class="rounded py-1 px-lg-5 text-white btn-outline-success"
+                                        style="
+                                            background-color: rgba(
+                                                0,
+                                                0,
+                                                0,
+                                                0.2
+                                            );
+                                        "
+                                    />
+                                </div>
+                                <div class="box ml-1">
+                                    <input
+                                        type="submit"
+                                        class="py-1 text-white px-lg-5 btn-outline-success bg-success rounded"
+                                        value="Lorem"
+                                    />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

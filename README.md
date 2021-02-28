@@ -6,10 +6,10 @@
 
 -   desktop **(1568 x 758)**
 
-    ![desktop](./views/public/assets/img/layout-desktop.png)
+    ![layout-desktop](./.github/layout-desktop.png)
 -   mobile **(280 x 653)**
 
-    ![mobile](./views/public/assets/img/layout-mobile.png)
+    ![layout-mobile](./.github/layout-mobile.png)
 
 ### **technologies used**
 
