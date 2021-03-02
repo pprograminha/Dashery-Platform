@@ -15,10 +15,8 @@
 
 -   HTML
 -   CSS
--   Sass
 -   MVC
--   PHP
--   JQuery
+-   Node Js
 -   Ajax
 -   Api-Rest
 -   mysql
