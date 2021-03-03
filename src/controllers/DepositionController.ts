@@ -8,7 +8,7 @@ export class DepositionController {
       const depositionRepository = getCustomRepository(DepositionRepository)
 
       const depositionr = depositionRepository.create({
-         username,
+         username,         
          deposition,
       })
 

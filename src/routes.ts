@@ -1,33 +1,22 @@
-import { Router } from "express";
-import path from "path";
-const router = Router();
-const pathFirstPiece = "../public/";
-const pathSecondyPiece = "pages/";
-const pathThirdPiece = ".html";
+import { Router } from 'express'
+import path from 'path'
 
-router.get("/", (req, res) => {
-    return res.sendFile(
-        path.join(__dirname, `${pathFirstPiece}index${pathThirdPiece}`)
-    );
-});
-router.get("/contact", (req, res) => {
-    return res.sendFile(
-        path.join(
-            __dirname,
-            `${pathFirstPiece}${pathSecondyPiece}contact${pathThirdPiece}`
-        )
-    );
-});
-router.get("/depositions", (req, res) => {
-    return res.sendFile(
-        path.join(
-            __dirname,
-            `${pathFirstPiece}${pathSecondyPiece}depositions${pathThirdPiece}`
-        )
-    );
-});
+import { DepositionController } from './controllers/DepositionController'
+
+const router = Router()
+
+router.get('/', (req, res) => {
+   res.sendFile(path.join(__dirname, '../public/index.html'))
+})
+
+router.get('/contact', (req, res) => {
+   res.sendFile(path.join(__dirname, '../public/pages/contact.html'))
+})
 
 // api
-router.get("/api/blogs", (req, res) => {});
+const depositionController = new DepositionController()
 
-export { router };
+router.get('/api/depositions', depositionController.show)
+router.post('/api/depositions', depositionController.create)
+
+export { router }
