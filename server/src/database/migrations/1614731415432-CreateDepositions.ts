@@ -16,6 +16,12 @@ export class CreateDepositions1614731415432 implements MigrationInterface {
                   type: 'varchar',
                },
                {
+                  name: 'user_image',
+                  type: 'varchar',
+                  isNullable: true,
+                  isUnique: true,
+               },
+               {
                   name: 'deposition',
                   type: 'text',
                },

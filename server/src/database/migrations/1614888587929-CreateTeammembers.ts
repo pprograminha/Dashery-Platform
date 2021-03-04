@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export class CreateDifferentials1614881630221 implements MigrationInterface {
+export class CreateTeammembers1614888587929 implements MigrationInterface {
    public async up(queryRunner: QueryRunner): Promise<void> {
       await queryRunner.createTable(
          new Table({
-            name: 'differentials',
+            name: 'teammembers',
             columns: [
                {
                   name: 'id',
@@ -12,16 +12,22 @@ export class CreateDifferentials1614881630221 implements MigrationInterface {
                   isPrimary: true,
                },
                {
-                  name: 'icon',
+                  name: 'member_image',
                   type: 'varchar',
+                  isNullable: true,
                },
                {
                   name: 'title',
                   type: 'varchar',
                },
                {
-                  name: 'description',
+                  name: 'description_one',
                   type: 'text',
+               },
+               {
+                  name: 'description_two',
+                  type: 'text',
+                  isNullable: true,
                },
                {
                   name: 'created_at',
@@ -34,6 +40,6 @@ export class CreateDifferentials1614881630221 implements MigrationInterface {
    }
 
    public async down(queryRunner: QueryRunner): Promise<void> {
-      await queryRunner.dropTable('differentials')
+      await queryRunner.dropTable('teammembers')
    }
 }
