@@ -1,19 +1,19 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm'
 import { v4 as uuid } from 'uuid'
 
-@Entity('depositions')
-export class Deposition {
+@Entity('differentials')
+export class Differentials {
    @PrimaryColumn('uuid')
    readonly id: string
 
    @Column('varchar')
-   username: string
+   icon: string
 
    @Column('varchar')
-   user_image: string | null
+   title: string
 
    @Column('text')
-   deposition: string
+   description: string
 
    @CreateDateColumn()
    created_at: Date
