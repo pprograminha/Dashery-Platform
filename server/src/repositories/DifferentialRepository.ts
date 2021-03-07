@@ -1,5 +1,5 @@
 import { Repository, EntityRepository } from 'typeorm'
-import { Differentials } from '../models/Differentials'
+import { Differential } from '../models/Differential'
 
-@EntityRepository(Differentials)
-export class DifferentialRepository extends Repository<Differentials> {}
+@EntityRepository(Differential)
+export class DifferentialRepository extends Repository<Differential> {}
