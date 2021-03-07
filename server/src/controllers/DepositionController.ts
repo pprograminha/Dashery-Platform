@@ -7,25 +7,42 @@ export class DepositionController {
       const depositionRepository = getCustomRepository(DepositionRepository)
       const depositions = await depositionRepository.find()
 
-      return res.send(depositions)
+      return res.status(200).json(depositions)
    }
    async create(req: Request, res: Response) {
       const { username, deposition } = req.body
       const depositionRepository = getCustomRepository(DepositionRepository)
+      try {
+         const depositionr = depositionRepository.create({
+            username,
+            deposition,
+         })
 
-      const depositionr = depositionRepository.create({
-         username,
-         deposition,
-      })
+         await depositionRepository.save(depositionr)
 
-      await depositionRepository.save(depositionr)
-
-      return res.send(depositionr)
+         return res.status(201).json(depositionr)
+      } catch (error) {
+         return res.status(400).json({ msg: error })
+      }
    }
    async destroy(req: Request, res: Response) {
-      return res.send('destroy')
+      const { id } = req.params
+      const depositionRepository = getCustomRepository(DepositionRepository)
+
+      const deposition = await depositionRepository.findOne(id)
+      await depositionRepository.delete(id)
+
+      if (!deposition) return res.status(400).json({ msg: 'not found' })
+      return res.json(deposition)
    }
    async update(req: Request, res: Response) {
-      return res.send('update')
+      const { id } = req.params
+      const depositionRepository = getCustomRepository(DepositionRepository)
+
+      const deposition = await depositionRepository.findOne(id)
+      await depositionRepository.delete(id)
+
+      if (!deposition) return res.status(400).json({ msg: 'not found' })
+      return res.json(deposition)
    }
 }
