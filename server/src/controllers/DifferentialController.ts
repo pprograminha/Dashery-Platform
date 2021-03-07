@@ -7,37 +7,44 @@ export class DifferentialController {
       const differentialRepository = getCustomRepository(DifferentialRepository)
       const differentials = await differentialRepository.find()
 
-      res.status(200).send(differentials)
+      res.status(200).json(differentials)
    }
    async create(req: Request, res: Response) {
       const { icon, title, description } = req.body
       const differentialRepository = getCustomRepository(DifferentialRepository)
-      
-      const differentials = differentialRepository.create({
-         icon,
-         title,
-         description,
-      })
+      try {
+         const differentials = differentialRepository.create({
+            icon,
+            title,
+            description,
+         })
 
-      await differentialRepository.save(differentials)
-      res.status(201).send(req.body)
+         await differentialRepository.save(differentials)
+         res.status(201).json(req.body)
+      } catch (error) {
+         res.status(400).json({ msg: error })
+      }
    }
    async destroy(req: Request, res: Response) {
       const { id } = req.params
       const differentialRepository = getCustomRepository(DifferentialRepository)
 
+      const differential = await differentialRepository.findOne(id)
       await differentialRepository.delete(id)
 
-      res.status(200).send('deleted')
+      if (!differential) return res.status(400).json({ msg: 'not found' })
+      return res.status(200).json(req.body)
    }
    async update(req: Request, res: Response) {
       const { id } = req.params
       const { icon, title, description } = req.body
 
       const differentialRepository = getCustomRepository(DifferentialRepository)
+      const differential = await differentialRepository.findOne(id)
 
       await differentialRepository.update({ id }, { icon, title, description })
 
-      res.status(200).send(req.body)
+      if (!differential) return res.status(400).json({ msg: 'not found' })
+      return res.status(200).json(req.body)
    }
 }
