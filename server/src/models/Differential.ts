@@ -1,22 +1,19 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm'
 import { v4 as uuid } from 'uuid'
 
-@Entity('teammembers')
-export class TeamMembers {
+@Entity('differentials')
+export class Differential {
    @PrimaryColumn('uuid')
    readonly id: string
 
    @Column('varchar')
+   icon: string
+
+   @Column('varchar')
    title: string
 
-   @Column('varchar')
-   member_image: string | null
-
-   @Column('varchar')
-   description_one: string
-
-   @Column('varchar')
-   description_two: string | null
+   @Column('text')
+   description: string
 
    @CreateDateColumn()
    created_at: Date

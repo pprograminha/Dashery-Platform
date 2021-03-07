@@ -10,7 +10,7 @@ export class Deposition {
    username: string
 
    @Column('varchar')
-   user_image: string | null
+   user_image: string
 
    @Column('text')
    deposition: string
