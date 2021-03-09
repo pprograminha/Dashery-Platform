@@ -3,6 +3,7 @@ import path from 'path'
 
 import { DepositionController } from './controllers/DepositionController'
 import { DifferentialController } from './controllers/DifferentialController'
+import { TeamMemberController } from './controllers/TeamMemberController'
 
 const router = Router()
 
@@ -29,5 +30,12 @@ router.get('/api/differentials', differentialController.show)
 router.post('/api/differentials', differentialController.create)
 router.delete('/api/differentials/:id', differentialController.destroy)
 router.put('/api/differentials/:id', differentialController.update)
+
+const teamMemberController = new TeamMemberController()
+
+router.get('/api/teamMembers', teamMemberController.show)
+router.post('/api/teamMembers', teamMemberController.create)
+router.delete('/api/teamMembers/:id', teamMemberController.destroy)
+router.put('/api/teamMembers/:id', teamMemberController.update)
 
 export { router }
