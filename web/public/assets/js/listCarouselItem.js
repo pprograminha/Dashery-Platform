@@ -3,14 +3,12 @@ http.get("/depositions", function (res) {
     listCarouselItem(res);
 });
 function listCarouselItem(depositions) {
-    for (var index = 0; index < depositions.length; index++) {
+    depositions.map(function (deposition, i) {
         $('#container-indicators').child({
             element: 'li',
-            classes: [index === 0 ? 'active' : 'noactive'],
+            classes: [i === 0 ? 'active' : 'noactive'],
             attr: [{ name: 'data-target', value: '#carouselExampleIndicators' }],
         });
-    }
-    depositions.map(function (deposition, i) {
         $('#container-carousel')
             .child({
             index: i,

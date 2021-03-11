@@ -3,7 +3,9 @@ import path from 'path'
 
 import { DepositionController } from './controllers/DepositionController'
 import { DifferentialController } from './controllers/DifferentialController'
+import { SurveyController } from './controllers/SurveyController'
 import { TeamMemberController } from './controllers/TeamMemberController'
+import { UserController } from './controllers/UserController'
 
 const router = Router()
 
@@ -37,5 +39,21 @@ router.get('/api/teamMembers', teamMemberController.show)
 router.post('/api/teamMembers', teamMemberController.create)
 router.delete('/api/teamMembers/:id', teamMemberController.destroy)
 router.put('/api/teamMembers/:id', teamMemberController.update)
+
+const userController = new UserController()
+
+router.get('/api/users', userController.getUsers)
+router.get('/api/users:id', userController.getUser)
+router.post('/api/users', userController.createUser)
+router.delete('/api/users/:id', userController.destroyUser)
+router.put('/api/users/:id', userController.updateUser)
+
+const surveyController = new SurveyController()
+
+router.get('/api/surveys', surveyController.getSurveys)
+router.get('/api/surveys:id', surveyController.getSurvey)
+router.post('/api/surveys', surveyController.createSurvey)
+router.delete('/api/surveys/:id', surveyController.destroySurvey)
+router.put('/api/surveys/:id', surveyController.updateSurvey)
 
 export { router }

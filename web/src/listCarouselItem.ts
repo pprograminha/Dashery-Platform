@@ -9,14 +9,12 @@ interface IDeposition {
    created_at: Date
 }
 function listCarouselItem(depositions: IDeposition[]) {
-   for (let index = 0; index < depositions.length; index++) {
+   depositions.map((deposition, i) => {
       $('#container-indicators').child({
          element: 'li',
-         classes: [index === 0 ? 'active' : 'noactive'],
+         classes: [i === 0 ? 'active' : 'noactive'],
          attr: [{ name: 'data-target', value: '#carouselExampleIndicators' }],
       })
-   }
-   depositions.map((deposition, i) => {
       $('#container-carousel')
          .child({
             index: i,
