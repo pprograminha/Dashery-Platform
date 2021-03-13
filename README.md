@@ -31,7 +31,6 @@
 -  Ajax
 -  Api-Rest
 -  mssql
--  JavaScript
 -  TypeScript
 -  git
 -  yarn
