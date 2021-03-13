@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import { getCustomRepository } from 'typeorm'
+import { Deposition } from '../models/Deposition'
 import { DepositionRepository } from '../repositories/DepositionRepository'
 
 export class DepositionController {
@@ -37,12 +38,16 @@ export class DepositionController {
    }
    async update(req: Request, res: Response) {
       const { id } = req.params
+      const { deposition, user_image, username } = <Deposition>req.body
       const depositionRepository = getCustomRepository(DepositionRepository)
 
-      const deposition = await depositionRepository.findOne(id)
-      await depositionRepository.delete(id)
+      await depositionRepository.update(
+         { id },
+         { deposition, user_image, username }
+      )
+      const depositionu = await depositionRepository.findOne(id)
 
-      if (!deposition) return res.status(400).json({ msg: 'not found' })
-      return res.json(deposition)
+      if (!depositionu) return res.status(400).json({ msg: 'not found' })
+      return res.json(depositionu)
    }
 }
