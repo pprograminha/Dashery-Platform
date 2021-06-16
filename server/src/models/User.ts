@@ -27,7 +27,7 @@ export class User {
    })
    email: string
 
-   @Column()
+   @Column('varchar')
    password: string
 
    @Column('varchar', {

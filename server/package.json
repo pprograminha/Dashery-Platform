@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn ./src/server",
+    "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn ./src/server",
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
   },
   "dependencies": {

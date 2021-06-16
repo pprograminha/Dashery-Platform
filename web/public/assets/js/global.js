@@ -55,12 +55,12 @@ var _$ = {
         }
     },
 };
-var http = {
+var app = {
     url: 'http://127.0.0.1:3333/api',
     get: function (resource, callbackFn) {
-        console.log(http.url + resource);
+        console.log(app.url + resource);
         _$.ajax({
-            url: http.url + resource,
+            url: app.url + resource,
             method: 'GET',
             dataType: 'json',
             success: function (response) {
@@ -70,7 +70,7 @@ var http = {
     },
     post: function (resource, callbackFn, datas) {
         _$.ajax({
-            url: http.url + resource,
+            url: app.url + resource,
             method: 'POST',
             contentType: 'application/json',
             data: datas,
@@ -82,7 +82,7 @@ var http = {
     },
     put: function (resource, callbackFn, datas) {
         _$.ajax({
-            url: http.url + resource,
+            url: app.url + resource,
             method: 'PUT',
             contentType: 'application/json',
             data: datas,
@@ -94,7 +94,7 @@ var http = {
     },
     delete: function (resource, callbackFn) {
         _$.ajax({
-            url: http.url + resource,
+            url: app.url + resource,
             method: 'DELETE',
             contentType: 'application/json',
             dataType: 'json',

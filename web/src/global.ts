@@ -90,12 +90,12 @@ const _$ = {
       }
    },
 }
-const http = {
+const app = {
    url: 'http://127.0.0.1:3333/api',
    get: (resource: string, callbackFn: (res: any) => void) => {
-      console.log(http.url + resource)
+      console.log(app.url + resource)
       _$.ajax({
-         url: http.url + resource,
+         url: app.url + resource,
          method: 'GET',
          dataType: 'json',
          success: (response) => {
@@ -109,7 +109,7 @@ const http = {
       datas: { [key: string]: string }
    ) => {
       _$.ajax({
-         url: http.url + resource,
+         url: app.url + resource,
          method: 'POST',
          contentType: 'application/json',
          data: datas,
@@ -125,7 +125,7 @@ const http = {
       datas: { [key: string]: string }
    ) => {
       _$.ajax({
-         url: http.url + resource,
+         url: app.url + resource,
          method: 'PUT',
          contentType: 'application/json',
          data: datas,
@@ -137,7 +137,7 @@ const http = {
    },
    delete: (resource: string, callbackFn: (res: any) => void) => {
       _$.ajax({
-         url: http.url + resource,
+         url: app.url + resource,
          method: 'DELETE',
          contentType: 'application/json',
          dataType: 'json',

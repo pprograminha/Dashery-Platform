@@ -1,8 +1,8 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm'
 import { v4 as uuid } from 'uuid'
 
-@Entity('depositions')
-export class Deposition {
+@Entity('testimonials')
+export class Testimonial {
    @PrimaryColumn('uuid')
    readonly id: string
 
@@ -13,7 +13,7 @@ export class Deposition {
    user_image: string
 
    @Column('text')
-   deposition: string
+   testimonial: string
 
    @CreateDateColumn()
    created_at: Date

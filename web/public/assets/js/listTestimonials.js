@@ -1,9 +1,9 @@
 "use strict";
-http.get("/depositions", function (res) {
+app.get("/testimonials", function (res) {
     listCarouselItem(res);
 });
-function listCarouselItem(depositions) {
-    depositions.map(function (deposition, i) {
+function listCarouselItem(testimonials) {
+    testimonials.map(function (testimonial, i) {
         $('#container-indicators').child({
             element: 'li',
             classes: [i === 0 ? 'active' : 'noactive'],
@@ -48,13 +48,13 @@ function listCarouselItem(depositions) {
             attr: [
                 {
                     name: 'src',
-                    value: deposition.user_image
-                        ? deposition.user_image
+                    value: testimonial.user_image
+                        ? testimonial.user_image
                         : 'https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
                 },
                 {
                     name: 'alt',
-                    value: deposition.username,
+                    value: testimonial.username,
                 },
             ],
         })
@@ -66,7 +66,7 @@ function listCarouselItem(depositions) {
             element: 'h5',
             parent: '.p5-1',
             classes: ['card-title', 'text-muted'],
-            content: deposition.username,
+            content: testimonial.username,
         })
             // 2
             .child({
@@ -91,8 +91,8 @@ function listCarouselItem(depositions) {
             .child({
             element: 'span',
             parent: '.p7-2',
-            classes: ['p8-3', 'deposition'],
-            content: deposition.deposition,
+            classes: ['p8-3', 'testimonial'],
+            content: testimonial.testimonial,
         })
             .child({
             element: 'span',

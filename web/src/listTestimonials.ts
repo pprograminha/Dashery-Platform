@@ -1,15 +1,15 @@
-http.get(`/depositions`, (res) => {
+app.get(`/testimonials`, (res) => {
    listCarouselItem(res)
 })
-interface IDeposition {
+interface ITestimonial {
    id: string
    username: string
    user_image: string | null
-   deposition: string
+   testimonial: string
    created_at: Date
 }
-function listCarouselItem(depositions: IDeposition[]) {
-   depositions.map((deposition, i) => {
+function listCarouselItem(testimonials: ITestimonial[]) {
+   testimonials.map((testimonial, i) => {
       $('#container-indicators').child({
          element: 'li',
          classes: [i === 0 ? 'active' : 'noactive'],
@@ -54,13 +54,13 @@ function listCarouselItem(depositions: IDeposition[]) {
             attr: [
                {
                   name: 'src',
-                  value: deposition.user_image
-                     ? deposition.user_image
+                  value: testimonial.user_image
+                     ? testimonial.user_image
                      : 'https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
                },
                {
                   name: 'alt',
-                  value: deposition.username,
+                  value: testimonial.username,
                },
             ],
          })
@@ -72,7 +72,7 @@ function listCarouselItem(depositions: IDeposition[]) {
             element: 'h5',
             parent: '.p5-1',
             classes: ['card-title', 'text-muted'],
-            content: deposition.username,
+            content: testimonial.username,
          })
 
          // 2
@@ -98,8 +98,8 @@ function listCarouselItem(depositions: IDeposition[]) {
          .child({
             element: 'span',
             parent: '.p7-2',
-            classes: ['p8-3', 'deposition'],
-            content: deposition.deposition,
+            classes: ['p8-3', 'testimonial'],
+            content: testimonial.testimonial,
          })
          .child({
             element: 'span',

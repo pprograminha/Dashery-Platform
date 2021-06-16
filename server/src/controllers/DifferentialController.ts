@@ -40,11 +40,11 @@ export class DifferentialController {
       const { icon, title, description } = req.body
 
       const differentialRepository = getCustomRepository(DifferentialRepository)
+      
+      await differentialRepository.update({ id }, { icon, title, description })
       const differential = await differentialRepository.findOne(id)
 
-      await differentialRepository.update({ id }, { icon, title, description })
-
       if (!differential) return res.status(400).json({ msg: 'not found' })
-      return res.status(200).json(req.body)
+      return res.status(200).json(differential)
    }
 }

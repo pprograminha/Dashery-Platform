@@ -42,15 +42,17 @@ export class TeamMemberController {
       >req.body
 
       const teamMemberRepository = getCustomRepository(TeamMemberRepository)
-      const member = await teamMemberRepository.findOne({ id })
-
-      if (!member) return res.status(400).json({ msg: 'not found' })
 
       try {
          await teamMemberRepository.update(
             { id },
             { description_one, description_two, member_image, title }
          )
+
+         const member = await teamMemberRepository.findOne({ id })
+
+         if (!member) return res.status(400).json({ msg: 'member not found' })
+
          return res.status(200).json(member)
       } catch (error) {
          return res.status(400).json({ msg: error })

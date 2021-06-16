@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import path from 'path'
 
-import { DepositionController } from './controllers/DepositionController'
+import { TestimonialController } from './controllers/TestimonialController'
 import { DifferentialController } from './controllers/DifferentialController'
 import { SurveyController } from './controllers/SurveyController'
 import { TeamMemberController } from './controllers/TeamMemberController'
@@ -19,12 +19,12 @@ router.get('/contact', (req, res) => {
 })
 
 // api
-const depositionController = new DepositionController()
+const testimonialController = new TestimonialController()
 
-router.get('/api/depositions', depositionController.show)
-router.post('/api/depositions', depositionController.create)
-router.delete('/api/depositions/:id', depositionController.destroy)
-router.put('/api/depositions/:id', depositionController.update)
+router.get('/api/testimonials', testimonialController.show)
+router.post('/api/testimonials', testimonialController.create)
+router.delete('/api/testimonials/:id', testimonialController.destroy)
+router.put('/api/testimonials/:id', testimonialController.update)
 
 const differentialController = new DifferentialController()
 
@@ -43,7 +43,7 @@ router.put('/api/teamMembers/:id', teamMemberController.update)
 const userController = new UserController()
 
 router.get('/api/users', userController.getUsers)
-router.get('/api/users:id', userController.getUser)
+router.get('/api/users/:id', userController.getUser)
 router.post('/api/users', userController.createUser)
 router.delete('/api/users/:id', userController.destroyUser)
 router.put('/api/users/:id', userController.updateUser)
@@ -51,7 +51,7 @@ router.put('/api/users/:id', userController.updateUser)
 const surveyController = new SurveyController()
 
 router.get('/api/surveys', surveyController.getSurveys)
-router.get('/api/surveys:id', surveyController.getSurvey)
+router.get('/api/surveys/:id', surveyController.getSurvey)
 router.post('/api/surveys', surveyController.createSurvey)
 router.delete('/api/surveys/:id', surveyController.destroySurvey)
 router.put('/api/surveys/:id', surveyController.updateSurvey)
