@@ -3,20 +3,20 @@ import { getCustomRepository } from 'typeorm'
 import DifferentialsRepository from '../../typeorm/repositories/DifferentialsRepository'
 
 export default class UpdateDifferentialController {
-   async handle(req: Request, res: Response) {
-      const { title, description, differential_id } = req.body
+  async handle(request: Request, response: Response): Promise<Response> {
+    const { title, description, differential_id } = request.body
 
-      const differentialRepository = getCustomRepository(DifferentialsRepository)
-      
-      const differential = await differentialRepository.listById(differential_id)
-      
-      if (!differential) return res.status(400).json({ msg: 'not found' })
+    const differentialRepository = getCustomRepository(DifferentialsRepository)
 
-      differential.title = title
-      differential.description = description
+    const differential = await differentialRepository.findById(differential_id)
 
-      await differentialRepository.save(differential)
+    if (!differential) return response.status(400).json({ msg: 'not found' })
 
-      return res.status(200).json(differential)
-   }
+    differential.title = title
+    differential.description = description
+
+    await differentialRepository.save(differential)
+
+    return response.status(200).json(differential)
+  }
 }
