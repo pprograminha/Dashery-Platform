@@ -30,7 +30,7 @@ export default class GenerateRefreshTokenService {
 
     const newRefreshToken = await this.refreshTokenRepository.generate({
       user_id,
-      expires_in: getUnixTime(addSeconds(new Date(), 30))
+      expires_in: getUnixTime(addSeconds(new Date(), 60))
     });
 
     return newRefreshToken
