@@ -10,3 +10,4 @@ ormconfig.production.json
 .env.development
 .env.production
 
+yarn-error.log
